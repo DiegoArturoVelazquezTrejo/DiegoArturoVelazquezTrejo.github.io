@@ -9,6 +9,89 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
   <style>
+
+    /* Press section (compact, 2-column grid) */
+    .press-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .press-card{
+      padding: 14px !important; /* compact vs default section padding */
+    }
+
+    .press-card h3{
+      margin: 0 0 6px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .press-url-link{
+      display: inline-block;
+      margin: 0 0 8px;
+      font-size: 11px;
+      word-break: break-word;
+      color: var(--muted);
+      opacity: .95;
+    }
+
+    .press-actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .press-link{
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(56,189,248,.35);
+      background: rgba(56,189,248,.14);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .press-link:hover{
+      background: rgba(56,189,248,.20);
+      text-decoration: none;
+    }
+
+    .press-frame-wrap{
+      width: 100%;
+      height: 320px;              /* reduced from 520 */
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.02);
+    }
+
+    .press-frame-wrap iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .press-note{
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    /* Responsive: stack to 1 column on smaller screens */
+    @media (max-width: 900px){
+      .press-grid{
+        grid-template-columns: 1fr;
+      }
+      .press-frame-wrap{
+        height: 360px; /* slightly taller for mobile readability */
+      }
+    }
+
+
     :root{
       --bg: #0f172a;
       --card: #0b1224;
@@ -303,6 +386,7 @@
         <li><a href="#working-experience">Professional</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#conferences">Conferences & Talks</a></li>
+        <li><a href="#press-viewer">Press</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -531,6 +615,211 @@
         </div>
       </div>
     </section>
+
+      <section id="press-viewer">
+  <h2>Press & Media Coverage</h2>
+
+  <p class="muted" style="margin-top:-4px;">
+    Some publishers restrict embedded previews for security reasons. If a preview is blank or shows “refused to connect”,
+    use the “Read article” button to open the page directly.
+  </p>
+
+  <div class="press-grid">
+
+    <!-- 1 -->
+    <div class="card press-card">
+      <h3>ITAM — Premio de la Juventud CDMX 2025</h3>
+
+      <a class="press-url-link"
+         href="https://www.itam.mx/es/noticia/diego-arturo-velazquez-exalumno-del-itam-recibe-premio-de-la-juventud-cdmx-2025"
+         target="_blank" rel="noopener noreferrer">
+        https://www.itam.mx/es/noticia/diego-arturo-velazquez-exalumno-del-itam-recibe-premio-de-la-juventud-cdmx-2025
+      </a>
+
+      <div class="press-actions">
+        <a class="press-link"
+           href="https://www.itam.mx/es/noticia/diego-arturo-velazquez-exalumno-del-itam-recibe-premio-de-la-juventud-cdmx-2025"
+           target="_blank" rel="noopener noreferrer">
+          Read article
+        </a>
+      </div>
+
+      <div class="press-frame-wrap">
+        <iframe
+          title="ITAM — Premio de la Juventud CDMX 2025 preview"
+          src="https://www.itam.mx/es/noticia/diego-arturo-velazquez-exalumno-del-itam-recibe-premio-de-la-juventud-cdmx-2025"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p class="muted press-note">
+        If the embedded preview does not load, the publisher likely blocks embedding. Use “Read article”.
+      </p>
+    </div>
+
+    <!-- 2 -->
+    <div class="card press-card">
+      <h3>ITAM — Triunfa entre médicos</h3>
+
+      <a class="press-url-link"
+         href="https://www.itam.mx/es/noticia/diego-velazquez-exalumno-del-itam-triunfa-entre-medicos"
+         target="_blank" rel="noopener noreferrer">
+        https://www.itam.mx/es/noticia/diego-velazquez-exalumno-del-itam-triunfa-entre-medicos
+      </a>
+
+      <div class="press-actions">
+        <a class="press-link"
+           href="https://www.itam.mx/es/noticia/diego-velazquez-exalumno-del-itam-triunfa-entre-medicos"
+           target="_blank" rel="noopener noreferrer">
+          Read article
+        </a>
+      </div>
+
+      <div class="press-frame-wrap">
+        <iframe
+          title="ITAM — Triunfa entre médicos preview"
+          src="https://www.itam.mx/es/noticia/diego-velazquez-exalumno-del-itam-triunfa-entre-medicos"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p class="muted press-note">
+        If the embedded preview does not load, the publisher likely blocks embedding. Use “Read article”.
+      </p>
+    </div>
+
+    <!-- 3 -->
+    <div class="card press-card">
+      <h3>La Prensa (OEM) — Premio de la Juventud 2025</h3>
+
+      <a class="press-url-link"
+         href="https://oem.com.mx/la-prensa/metropoli/entrega-congreso-cdmx-premio-de-la-juventud-2025-quienes-son-los-galardonados-25188587"
+         target="_blank" rel="noopener noreferrer">
+        https://oem.com.mx/la-prensa/metropoli/entrega-congreso-cdmx-premio-de-la-juventud-2025-quienes-son-los-galardonados-25188587
+      </a>
+
+      <div class="press-actions">
+        <a class="press-link"
+           href="https://oem.com.mx/la-prensa/metropoli/entrega-congreso-cdmx-premio-de-la-juventud-2025-quienes-son-los-galardonados-25188587"
+           target="_blank" rel="noopener noreferrer">
+          Read article
+        </a>
+      </div>
+
+      <div class="press-frame-wrap">
+        <iframe
+          title="OEM — Premio de la Juventud 2025 preview"
+          src="https://oem.com.mx/la-prensa/metropoli/entrega-congreso-cdmx-premio-de-la-juventud-2025-quienes-son-los-galardonados-25188587"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p class="muted press-note">
+        If the embedded preview does not load, the publisher likely blocks embedding. Use “Read article”.
+      </p>
+    </div>
+
+    <!-- 4 -->
+    <div class="card press-card">
+      <h3>ITAM Eventos — Artículo en Salud Pública de México</h3>
+
+      <a class="press-url-link"
+         href="https://eventos.itam.mx/es/noticia/diego-arturo-velazquez-trejo-estudiante-del-itam-colaboro-en-articulo-publicado-por-la"
+         target="_blank" rel="noopener noreferrer">
+        https://eventos.itam.mx/es/noticia/diego-arturo-velazquez-trejo-estudiante-del-itam-colaboro-en-articulo-publicado-por-la
+      </a>
+
+      <div class="press-actions">
+        <a class="press-link"
+           href="https://eventos.itam.mx/es/noticia/diego-arturo-velazquez-trejo-estudiante-del-itam-colaboro-en-articulo-publicado-por-la"
+           target="_blank" rel="noopener noreferrer">
+          Read article
+        </a>
+      </div>
+
+      <div class="press-frame-wrap">
+        <iframe
+          title="ITAM Eventos — Salud Pública de México article preview"
+          src="https://eventos.itam.mx/es/noticia/diego-arturo-velazquez-trejo-estudiante-del-itam-colaboro-en-articulo-publicado-por-la"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p class="muted press-note">
+        If the embedded preview does not load, the publisher likely blocks embedding. Use “Read article”.
+      </p>
+    </div>
+
+    <!-- 5 -->
+    <div class="card press-card">
+      <h3>ITAM — Ganadores del XXX Premio de Investigación ExITAM 2025</h3>
+
+      <a class="press-url-link"
+         href="https://www.itam.mx/es/noticia/ganadores-del-xxx-premio-de-investigacion-exitam-2025"
+         target="_blank" rel="noopener noreferrer">
+        https://www.itam.mx/es/noticia/ganadores-del-xxx-premio-de-investigacion-exitam-2025
+      </a>
+
+      <div class="press-actions">
+        <a class="press-link"
+           href="https://www.itam.mx/es/noticia/ganadores-del-xxx-premio-de-investigacion-exitam-2025"
+           target="_blank" rel="noopener noreferrer">
+          Read article
+        </a>
+      </div>
+
+      <div class="press-frame-wrap">
+        <iframe
+          title="ITAM — ExITAM 2025 preview"
+          src="https://www.itam.mx/es/noticia/ganadores-del-xxx-premio-de-investigacion-exitam-2025"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p class="muted press-note">
+        If the embedded preview does not load, the publisher likely blocks embedding. Use “Read article”.
+      </p>
+    </div>
+
+    <div class="card press-card">
+      <h3>CFM - Fundación UNAM — Ganadores del Premio a la Innovación Farmacéutica 2025, 8va edición</h3>
+
+      <a class="press-url-link"
+         href="https://www.fundacionunam.org.mx/wp-content/uploads/2025/09/GANADORES_premio_cfm2025-1.jpg"
+         target="_blank" rel="noopener noreferrer">
+        https://www.fundacionunam.org.mx/wp-content/uploads/2025/09/GANADORES_premio_cfm2025-1.jpg
+      </a>
+
+      <div class="press-actions">
+        <a class="press-link"
+           href="https://www.fundacionunam.org.mx/wp-content/uploads/2025/09/GANADORES_premio_cfm2025-1.jpg"
+           target="_blank" rel="noopener noreferrer">
+          Read article
+        </a>
+      </div>
+
+      <div class="press-frame-wrap">
+        <iframe
+          title="ITAM — ExITAM 2025 preview"
+          src="https://www.itam.mx/es/noticia/ganadores-del-xxx-premio-de-investigacion-exitam-2025"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <p class="muted press-note">
+        If the embedded preview does not load, the publisher likely blocks embedding. Use “Read article”.
+      </p>
+    </div>
+
+  </div>
+</section>
+    
 
     <section id="education">
       <h2>Education</h2>
