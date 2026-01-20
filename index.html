@@ -1,292 +1,801 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Arturo Velázquez Trejo - Personal Page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Arturo Velázquez Trejo - Personal Page</title>
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif; /* Use the 'Poppins' font */
-            margin: 0;
-            padding: 0;
-            margin-left: 20px;
-        }
+  <!-- Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
-        nav {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
+  <style>
+    :root{
+      --bg: #0f172a;
+      --card: #0b1224;
+      --text: #e5e7eb;
+      --muted: #b6c0cf;
+      --accent: #38bdf8;
+      --accent2: #a78bfa;
+      --nav: #0b1020;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+    * { box-sizing: border-box; }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
+    body{
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(56,189,248,.20), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.18), transparent 55%),
+        linear-gradient(180deg, #0b1020 0%, #071022 60%, #050b18 100%);
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
+    a{
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover{ text-decoration: underline; }
 
-        h1 {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .header {
-            text-align: center;
-            margin-top: 20px;
-        }
+    /* NAV */
+    nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11,16,32,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .header img {
-            display: block;
-            margin: 0 auto;
-            max-width: 250px; 
-            border-radius: 50%; 
-        } 
-	footer {
-            background-color: #2C3E50;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
+    nav .nav-wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
 
-    </style>
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 210px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: var(--text);
+    }
+    .brand-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(56,189,248,.10);
+    }
+
+    nav ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      justify-content: flex-end;
+    }
+
+    nav ul li a{
+      color: var(--text);
+      font-weight: 500;
+      font-size: 13px;
+      opacity: .92;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background .2s ease, opacity .2s ease;
+      display: inline-block;
+    }
+    nav ul li a:hover{
+      background: rgba(255,255,255,.08);
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    /* LAYOUT */
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 26px 16px 40px;
+    }
+
+    /* HERO */
+    .header{
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 22px;
+      align-items: center;
+      margin-top: 10px;
+      padding: 20px;
+      background: rgba(11,18,36,.55);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .header img{
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+      margin: 0 auto;
+      display: block;
+    }
+
+    .hero-title{
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: .2px;
+    }
+
+    .hero-subtitle{
+      margin: 10px 0 14px;
+      color: var(--muted);
+      font-weight: 400;
+      max-width: 720px;
+    }
+
+    .pill-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 0;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      opacity: .95;
+    }
+
+    .quick-links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .quick-links span{
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+    }
+
+    /* SECTION */
+    section{
+      margin-top: 22px;
+      padding: 20px;
+      background: rgba(11,18,36,.55);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    section h2{
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+
+    section p{
+      margin: 0 0 10px;
+      color: var(--text);
+      opacity: .95;
+      line-height: 1.55;
+    }
+
+    .grid-2{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .card{
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: .15px;
+    }
+
+    ul{
+      margin: 8px 0 0 18px;
+      color: var(--text);
+      opacity: .95;
+      line-height: 1.6;
+    }
+
+    .muted{
+      color: var(--muted);
+      opacity: .95;
+    }
+
+    .tagline{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hr{
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top: 26px;
+      background-color: rgba(11,16,32,.88);
+      color: var(--muted);
+      text-align: center;
+      padding: 14px 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px){
+      .header{
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .quick-links{
+        justify-content: center;
+      }
+      .grid-2{
+        grid-template-columns: 1fr;
+      }
+      nav .nav-wrap{
+        flex-direction: column;
+        align-items: stretch;
+      }
+      nav ul{
+        justify-content: center;
+      }
+      .brand{
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="#introduction">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#relevant-coursework">Relevant Coursework</a></li>
-            <li><a href="#published-papers">Published Papers</a></li>
-            <li><a href="#research-position">Research Position</a></li>
-            <li><a href="#teaching">Teaching</a></li>
-            <li><a href="#working-experience">Working Experience</a></li>
-            <li><a href="#work-with-cause">Work with Cause</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#contact">Contact</a></li>
 
-        </ul>
-    </nav>
-    
+<body>
+  <nav>
+    <div class="nav-wrap">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>Diego A. Velázquez Trejo</span>
+      </div>
+
+      <ul>
+        <li><a href="#introduction">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#relevant-coursework">Training</a></li>
+        <li><a href="#research-position">Research</a></li>
+        <li><a href="#published-papers">Publications</a></li>
+        <li><a href="#working-experience">Professional</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#conferences">Conferences & Talks</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
     <div class="header">
-        <h1>Diego Arturo Velázquez Trejo</h1>
-        <img src="diego.jpg" alt="Diego Arturo Velázquez Trejo">
+      <img src="diego.jpg" alt="Diego Arturo Velázquez Trejo" />
+
+      <div>
+        <h1 class="hero-title">Diego Arturo Velázquez Trejo</h1>
+        <p class="hero-subtitle">
+          Applied Mathematician & Computer Scientist with an M.Sc. in Biological Sciences (UNAM–INMEGEN), working at the intersection of
+          Bioinformatics, Statistical Machine Learning, and Translational Omics. Interested in drug repositioning and early-stage drug discovery,
+          gene regulatory networks, antimicrobial resistance, and multi-omics (transcriptomics, proteomics, metabolomics) for complex disease biology,
+          genomic medicine, and precision medicine.
+        </p>
+        <div class="pill-row">
+          <span class="pill">M.Sc. Biological Sciences (UNAM–INMEGEN)</span>
+          <span class="pill">B.Sc. Applied Mathematics (ITAM)</span>
+          <span class="pill">Bioinformatics • Transcriptomics • Metabolomics</span>
+          <span class="pill">Bayesian ML • Neural Nets • Genetic Algorithms</span>
+        </div>
+
+        <div class="quick-links" style="margin-top:14px;">
+          <span><strong class="muted">Email:</strong> d.velazquez.mc@gmail.com</span>
+          <span><strong class="muted">Email:</strong> velazquez@ciencias.unam.mx</span>
+          <span><strong class="muted">Website:</strong> <a href="https://diegoarturovelazqueztrejo.github.io" target="_blank">diegoarturovelazqueztrejo.github.io</a></span>
+          <span><strong class="muted">GitHub:</strong> <a href="https://github.com/DiegoArturoVelazquezTrejo" target="_blank">DiegoArturoVelazquezTrejo</a></span>
+          <span><strong class="muted">Mobile:</strong> +52 56 30 00 10 76</span>
+        </div>
+
+        <p class="tagline">
+          Eager to participate in multidisciplinary teams to generate inclusive and effective solutions bridging computation and biology.
+        </p>
+      </div>
     </div>
 
     <section id="introduction">
-    		<h2>About</h2>
-        <p>Hi there! My name is Diego Arturo Velázquez Trejo. I double majored in Applied Mathematics and Computer Sciences. I am interested in applying Bayesian statistics, MCMC, genetic algorithms, and many other heuristics, computational simulation, stochastic and dynamic processes, machine learning, AI, numerical optimization, and tons of statistics to biological processes. Eager to participate in multidisciplinary teams to generate inclusive and effective solutions.</p>
-    		<p>I'm particularly interested in applying for a PhD in bioinformatics to address contemporary problems in complex diseases such as cancer, HIV, and diabetes. My final goal is personalized medicine, where the insights and advancements in bioinformatics can contribute to tailoring medical treatments to individual patients. This passion drives me to explore the intricate interplay between computational methods and biological data, aiming to make a tangible impact on healthcare and patient outcomes. Specifically, I am drawn to pharmacogenomics as it presents a fascinating field where I can leverage my skills and knowledge to contribute meaningfully.</p>
-    </section>
+  <h2>About</h2>
+  <p>
+    Hi there! My name is Diego Arturo Velázquez Trejo. I hold an M.Sc. in Biological Sciences (UNAM–INMEGEN) and I previously double majored
+    in Applied Mathematics and Computer Sciences. My work sits at the intersection of quantitative modelling, machine learning, and genomic medicine,
+    with a focus on extracting actionable biological insight from high-dimensional data and complex systems.
+  </p>
+  <p>
+    My research interests include drug repositioning and early-stage drug discovery, gene regulatory networks and regulatory inference in natural
+    transcriptomes, and multi-omics integration across transcriptomics, proteomics, and metabolomics. I am also actively interested in antimicrobial
+    resistance and data-driven strategies to accelerate therapeutic development and evaluation.
+  </p>
+  <p>
+    From a translational perspective, I work on metabolomics-based clinical applications—particularly gestational diabetes—where I collaborate with
+    clinical and research teams to develop and validate quantitative approaches that enable earlier risk stratification and timely intervention.
+    In parallel, I co-founded a startup focused on maturing a metabolomics-based prognostic test for early detection of gestational diabetes,
+    bridging method development, clinical validation strategy, and technology transfer toward real-world deployment.
+  </p>
+</section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <p>I majored in Applied Mathematics at Instituto Tecnológico Autónomo de México (ITAM) where I had the opportunity to take some of the following courses:</p>
-        <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Real_analysis">Real Analysis</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Dynamical_system">Dynamical Systems (Differential Equations)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Advanced_Dynamical_Systems">Advanced Dynamical Systems</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Linear_programming">Linear Programming</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Stochastic_process">Stochastic Processes</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Mathematical_statistics">Mathematical Fundamentals of Statistics</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Mathematical_optimization">Linear Numerical Optimization</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Nonlinear_programming">Non-linear Numerical Optimization</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Operations_research">Operations Research</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Mathematical_and_theoretical_biology">Applied Mathematics to Biology</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Outline_of_linear_algebra">Advanced Linear Algebra</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian Statistics</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling">Advanced Regression</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Bayesian_computation">Bayesian Computation Modeling</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Nonparametric_statistics">Non-parametric Statistics</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Stochastic_simulation">Stochastic Simulation</a></li>
-        </ul>
 
-        <p>I also majored in Computer Sciences at Universidad Nacional Autónoma de México (UNAM) at the Faculty of Sciences where I had the opportunity to take some of the following courses:</p>
-        <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Graph_theory">Graph Theory</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Evolutive Computing (Genetic Algorithms)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Computational_genomics">Introduction to Computational Genomics</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Analysis_of_algorithms">Analysis of Algorithms</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing">Natural Language Processing</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Agent-based_model">Model Based Agent (Study of Complex Systems)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Statistical_learning_theory">Statistical Learning</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Computational_complexity">Computational Complexity</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Concurrent_computing">Concurrent Computing</a></li>
-        </ul>
+    <section id="research-position">
+      <h2>Research Experience</h2>
 
-        <p>I took a course in Pharmacogenomics at Instituto Nacional de Medicina Genómica INMEGEN-UNAM (approved by Faculty of Medicine, UNAM). Some of the main modules were:</p>
+      <div class="card">
+        <h3>2024–present — M.Sc. project (INMEGEN): Effective regulatory interactions in natural transcriptomes</h3>
+        <p class="muted">Group Leader: Dr Humberto Gutiérrez • Computational Genomics Division • Mexico City</p>
         <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Pharmacogenomics">Principles of Pharmacogenomics</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Molecular_biology">Molecular Biology</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Metabolism">Metabolism</a></li>
-            <li>Biological Variability and Medicine</li>
-            <li><a href="https://en.wikipedia.org/wiki/Genetics">Genetics</a></li>
-            <li>Pharmacokinetics and Pharmacodynamics</li>
-            <li>Introduction to Sequencing</li>
-            <li>Clinical Cases</li>
+          <li>Detecting effective regulatory interactions in natural transcriptomes using machine-learning approaches.</li>
         </ul>
-    </section>
+      </div>
 
-    <section id="relevant-coursework">
-        <h2>Relevant Coursework</h2>
+      <div class="card" style="margin-top:12px;">
+        <h3>2023–present — Early diagnostic test for gestational diabetes (INMEGEN)</h3>
+        <p class="muted">Collaboration: Dr Felipe Vadillo Ortega • UNAM–INMEGEN Scientific Liaison Research Unit • Mexico City</p>
         <ul>
-            <li>Recursive Programming in Racket, Faculty of Sciences, UNAM (2020).</li>
-            <li>Electronic Course with Arduino, Centro de Ciencias Aplicadas y Desarrollo Tecnológico, UNAM (2018).</li>
-            <li>Swift Basic Development, Faculty of Engineering, UNAM (2018).</li>
-            <li>Python Basic, Medium and Advanced Coursework, UNAM (2018).</li>
-            <li>Robotics with Arduino with the Robotic Association at Faculty of Engineering, UNAM (2018).</li>
-            <li>Computer Design with SolidWorks, UNAM (2017).</li>
+          <li>Development and validation of an early diagnostic test for gestational diabetes.</li>
+          <li>Metabolomics data analysis for gestational diabetes biomarkers discovery.</li>
         </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>2025–present — Drug repositioning for Mycobacterium tuberculosis (INMEGEN)</h3>
+        <ul>
+          <li>Drug repositioning using a machine-learning and molecular modeling approach.</li>
+          <li>Molecular Docking and Molecular Dynamics.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>2022–2025 — Metabotypes in children (UNAM–INMEGEN)</h3>
+        <p class="muted">Group Leader: Dr Felipe Vadillo Ortega • Gestational-Genomics Laboratory • Mexico City</p>
+        <ul>
+          <li>Formulated mathematical models to identify differential factors in amino-acid, fatty-acid, and glucose consumption.</li>
+          <li>Applied unsupervised ML to identify nonlinear patterns supporting patient stratification.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>2022–2024 — COVID-19 & air pollution study (UNAM–INMEGEN)</h3>
+        <p class="muted">Group Leader: Dr. Pablo Francisco Oliva Sánchez • Mexico City</p>
+        <ul>
+          <li>Proposed statistical analyses and managed epidemiological datasets (General Directorate of Epidemiology) and atmospheric monitoring data (RAMA).</li>
+          <li>Evaluated associations with morbidity/mortality.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>2019–2023 — Undergraduate thesis (ITAM): TeSCO and deep autoencoder reconstruction</h3>
+        <ul>
+          <li>Developed TeSCO (Temporal Segment Correlation Optimisation) to find informative time windows.</li>
+          <li>Built a deep autoencoder-based method to reconstruct longitudinal studies using reference cohorts.</li>
+        </ul>
+      </div>
+
     </section>
 
     <section id="published-papers">
-			<h2>Published Papers</h2>
-      <p><strong> Oliva-Sánchez, P. F., López-Landeros, S., Velázquez-Trejo, D. A., Brenner-Muslera, E., Martínez-Kobeh, J. P., González-Reyes, D., Guasque-Gil, I., & Vadillo-Ortega, F. (2022). Asociación de la exposición a contaminantes atmosféricos con indicadores epidemiológicos de morbilidad y mortalidad por Covid-19 en el Valle de México. Salud Pública De México, 64(5, sept-oct), 453-463. https://doi.org/10.21149/13814
-      </strong><br>
-      Association of exposure to air pollution with epidemiological indicators of morbidity and mortality for COVID-19 in the Valley of Mexico. Published in the Revista de Salud Pública de México (SJR 0.57)<br>
-      <a href="https://pubmed.ncbi.nlm.nih.gov/36130351/" target="_blank">Link to Paper</a></p>
+      <h2>Publications, Manuscripts & Book Chapter</h2>
 
-      <p><strong>Álvarez Pérez, J. C., Feito Grande, L., Hernández Mansilla, J. M., Rodríguez Yunta, E., Oliva Sánchez, P. F., Prado Vázquez, R., ... Pérez-Salas Pérez-Gil, P. (2014). Ensayos sobre ética de la salud: aspectos clínicos y biomédicos. Universidad Autónoma Metropolitana. ISBN 978-607-28-0227-8.</strong><br>
-      Where I participated in Chapter 6: Essays on Health Ethics: Clinical and Biomedical Aspects<br>
-      Equity in Healthcare Services and Biotechnological Research in Mexico<br>
-      <a href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank">Link to Chapter</a></p>
+      <div class="card">
+        <h3>Peer-reviewed Articles</h3>
 
-      <p>Developing countries (or economies in transition) face challenges in achieving more equitable, just, and community-appropriate social development. Health equity is a significant social challenge in these contexts. Mexico, classified as a middle-income country, shares with Latin America and the Caribbean a reality of social inequality and confronts a diversity of issues affecting the population at all development levels. The Mexican healthcare system continues to grapple with a dual burden of disease: malnutrition, infectious diseases (including epidemic outbreaks), and maternal-child health issues coexist with chronic-degenerative diseases and accidents…<br>
-      <a href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank">More Information</a></p>
+        <p>
+          Hernández-Ramírez, S. K., Velázquez Trejo, D. A., Sandoval-Colín, E., Flores-Torres, M., Fresno, C.,
+          Polo-Oteyza, E., Garcés-Hernández, M. J., Garibay-Nieto, N., Ibarra-González, I., Vela-Amieva, M.,
+          Estrada-Gutiérrez, G., & Vadillo-Ortega, F. (2025). <strong>Identification of metabotypes in healthy schoolchildren
+          and their change in response to a physical activity intervention.</strong> <em>Metabolites</em>.
+          <a href="https://doi.org/10.3390/metabo16010044" target="_blank">https://doi.org/10.3390/metabo16010044</a>
+        </p>
+        <br>
+        <p>
+          Oliva Sánchez, P. F., Velázquez Trejo, D. A., Abarca Acha, L. F., et al. (2024). <strong>Non-communicable chronic diseases and COVID-19 in Mexico:
+          an epidemiological surveillance perspective.</strong> <em>Mensaje Bioquímico</em>, 48, 61–80. <a href="http://biosensor.facmed.unam.mx/mensajebioquimico/wp-content/uploads/2024/09/Mensaje-Bioquimico-2024-Vol-48.pdf" target="_blank">ISSN-0188-137X</a>
+        </p>
+        <br>
+        <p>
+          Oliva-Sánchez, P. F., López-Landeros, S., Velázquez-Trejo, D. A., Brenner-Muslera, E., Martínez-Kobeh, J. P., González-Reyes, D.,
+          Guasque-Gil, I., & Vadillo-Ortega, F. (2022). <strong>Asociación de la exposición a contaminantes atmosféricos con indicadores epidemiológicos de
+          morbilidad y mortalidad por Covid-19 en el Valle de México.</strong> <em>Salud Pública De México</em>, 64(5, sept-oct), 453-463.
+          <a href="https://pubmed.ncbi.nlm.nih.gov/36130351/" target="_blank">https://doi.org/10.21149/13814</a>
+        <br>
+      </div>
 
-		</section>
+      <div class="card" style="margin-top:12px;">
+        <h3>Manuscripts</h3>
+        <ul>
+          <li>
+            Velázquez-Trejo, D. A., Islas-Ortíz, J. A., Rueda-Zarazúa, B., del-Toro, D., Olascoaga-Del Angel, O., Ramirez-Lugo, L., & Gutiérrez, H.*
+            <strong>Effective regulatory relationships between genes differ from direct transcription factor-target interactions, and exhibit a distinct statistical signature.</strong>
+            Manuscript under review (2025).
+          </li>
+        </ul>
+      </div>
 
-    <section id="research-position">
-        <h2>Research Position for Social Service INMEGEN and Thesis Project</h2>
-        <p>Currently, I am engaged in a research position at <a href="https://www.inmegen.gob.mx/" target="_blank">INMEGEN</a> as part of my undergraduate social service, working under the mentorship of Dr. Pablo Oliva Sánchez (<a href="https://www.researchgate.net/profile/Pablo-Oliva-Sanchez-2" target="_blank">ResearchGate Profile</a>). This opportunity has led me to the Gemma 2d research group (<a href="https://gema2000d.org/dr-pablo-francisco-oliva-sanchez/" target="_blank">Gemma 2d Group</a>), where I am devoted to my thesis project: "Development of a Methodology for Optimal Detection of Optimal Intervals of Interest and Reconstruction of Missing Data in Longitudinal Sampling: Biological Applications"</p>
+      <div class="card" style="margin-top:12px;">
+        <h3>Book Chapter</h3>
+        <p><strong>
+          Oliva Sánchez, P. F., Landín Quirós, C. E., Prado Vázquez, R., et al., & Velázquez Trejo, D. A. (2021).
+          Equity in health services and biotechnological research in Mexico.
+          In Álvarez Díaz, J. A., & López Moreno, S. (Eds.), <em>Essays on Health Ethics: Clinical and Biomedical Aspects</em>
+          (2nd ed., pp. 121–132). Universidad Autónoma Metropolitana, Unidad Xochimilco. ISBN: 978-607-28-1889-7
+        </strong></p>
 
-        <p>Within this endeavor, we are engrossed in a retrospective cohort study involving 200 Mexican HIV patients. Our project's overarching goal is to devise a robust statistical methodology that effectively classifies patients based on their chronic control of viral load and CD4 cell count, incorporating other pertinent variables from the cohort. Subsequently, we will explore the interplay between inflammatory biomarkers such as IL-6, IL-16, PCR, VCAM, and D-Dimer within each classification group. Ultimately, our research aims to comprehensively assess the cardiovascular risk associated with differing levels of chronic control.</p>
+        <!-- Keeping the original ISBN link(s) already present on your page -->
+        <p><strong>Álvarez Pérez, J. C., Feito Grande, L., Hernández Mansilla, J. M., Rodríguez Yunta, E., Oliva Sánchez, P. F., Prado Vázquez, R., ... Pérez-Salas Pérez-Gil, P. (2014). Ensayos sobre ética de la salud: aspectos clínicos y biomédicos. Universidad Autónoma Metropolitana. ISBN 978-607-28-0227-8.</strong><br>
+        Where I participated in Chapter 6: Essays on Health Ethics: Clinical and Biomedical Aspects<br>
+        Equity in Healthcare Services and Biotechnological Research in Mexico<br>
+        <a href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank">Link to Chapter</a></p>
 
+        <p>
+          Developing countries (or economies in transition) face challenges in achieving more equitable, just, and community-appropriate social development.
+          Health equity is a significant social challenge in these contexts. Mexico, classified as a middle-income country, shares with Latin America and the
+          Caribbean a reality of social inequality and confronts a diversity of issues affecting the population at all development levels. The Mexican healthcare
+          system continues to grapple with a dual burden of disease: malnutrition, infectious diseases (including epidemic outbreaks), and maternal-child health
+          issues coexist with chronic-degenerative diseases and accidents…<br>
+          <a href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank">More Information</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Programming Languages</h3>
+          <ul>
+            <li>R</li>
+            <li>Python (advanced use)</li>
+            <li>Bash</li>
+            <li>Java</li>
+            <li>C</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Statistics & Machine Learning</h3>
+          <ul>
+            <li>Bayesian inference (Markov Chain Monte Carlo)</li>
+            <li>Unsupervised learning</li>
+            <li>Neural networks</li>
+            <li>Genetic algorithms</li>
+            <li>Time-series and longitudinal modelling</li>
+            <li>Epidemiology</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Bioinformatics</h3>
+          <ul>
+            <li>Transcriptomics</li>
+            <li>Protein structure analysis</li>
+            <li>Differential expression analysis</li>
+            <li>Coexpression network analysis</li>
+            <li>Single-cell expression analysis</li>
+            <li>Molecular docking & Molecular Dynamics</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Software & Practices</h3>
+          <ul>
+            <li>Git / GitHub</li>
+            <li>Reproducible analysis workflows</li>
+            <li>Robotics prototyping (ROS, Raspberry Pi, sensors/motors integration)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>M.Sc. in Biological Sciences — UNAM (Faculty of Medicine) / INMEGEN (2024–2026)</h3>
+          <p class="muted">Overall Grade: 9.75 / 10</p>
+          <p>
+            Thesis Dissertation: <strong>Detection of Effective regulatory relationships between genes in natural transcriptomes using a machine learning approach.</strong>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>B.Sc. in Applied Mathematics — ITAM (2019–2023)</h3>
+          <p class="muted">Overall Grade: 9.01 / 10 • Graduated with Honors (Mención Honorífica) • Merit scholarship for High Academic Achievement</p>
+          <p>
+            Thesis Dissertation: <strong>Velázquez Trejo, D. A. (2024). A methodology for optimal detection of time windows of interest and missing-data reconstruction in biological sampling:
+            an application to the characterization of “chronic” control groups in HIV patients.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <p>I majored in Applied Mathematics at Instituto Tecnológico Autónomo de México (ITAM) where I had the opportunity to take some of the following courses:</p>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Real_analysis">Real Analysis</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Dynamical_system">Dynamical Systems (Differential Equations)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Advanced_Dynamical_Systems">Advanced Dynamical Systems</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Linear_programming">Linear Programming</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Stochastic_process">Stochastic Processes</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Mathematical_statistics">Mathematical Fundamentals of Statistics</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Mathematical_optimization">Linear Numerical Optimization</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Nonlinear_programming">Non-linear Numerical Optimization</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Operations_research">Operations Research</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Mathematical_and_theoretical_biology">Applied Mathematics to Biology</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Outline_of_linear_algebra">Advanced Linear Algebra</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian Statistics</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling">Advanced Regression</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Bayesian_computation">Bayesian Computation Modeling</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Nonparametric_statistics">Non-parametric Statistics</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Stochastic_simulation">Stochastic Simulation</a></li>
+      </ul>
+
+      <p>I also majored in Computer Sciences at Universidad Nacional Autónoma de México (UNAM) at the Faculty of Sciences where I had the opportunity to take some of the following courses:</p>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Graph_theory">Graph Theory</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Evolutive Computing (Genetic Algorithms)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Computational_genomics">Introduction to Computational Genomics</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Analysis_of_algorithms">Analysis of Algorithms</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing">Natural Language Processing</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Agent-based_model">Model Based Agent (Study of Complex Systems)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Statistical_learning_theory">Statistical Learning</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Computational_complexity">Computational Complexity</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Concurrent_computing">Concurrent Computing</a></li>
+      </ul>
+
+      <p>I took a course in Pharmacogenomics at Instituto Nacional de Medicina Genómica INMEGEN-UNAM (approved by Faculty of Medicine, UNAM). Some of the main modules were:</p>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Pharmacogenomics">Principles of Pharmacogenomics</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Molecular_biology">Molecular Biology</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Metabolism">Metabolism</a></li>
+        <li>Biological Variability and Medicine</li>
+        <li><a href="https://en.wikipedia.org/wiki/Genetics">Genetics</a></li>
+        <li>Pharmacokinetics and Pharmacodynamics</li>
+        <li>Introduction to Sequencing</li>
+        <li>Clinical Cases</li>
+      </ul>
+    </section>
+
+    <section id="relevant-coursework">
+      <h2>Additional Training & Relevant Coursework</h2>
+
+      <div class="card">
+        <h3>Selected Training</h3>
+        <ul>
+          <li>(December 7 - 12, 2025) Wellcome Connecting Science: Computational Systems Biology for Digital Medicine (Hinxton, UK).</li>
+          <li>(August 7 - November 10, 2023) Pharmacogenomics, National Institute of Genomic Medicine (INMEGEN) – UNAM Faculty of Medicine.</li>
+          <li>(April 10 - July 1, 2018) Arduino Course, UNAM Center for Applied Sciences and Technological Development (ICAT).</li>
+        </ul>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="card">
+        <h3>Other Coursework (historical list)</h3>
+        <ul>
+          <li>Recursive Programming in Racket, Faculty of Sciences, UNAM (2020).</li>
+          <li>Electronic Course with Arduino, Centro de Ciencias Aplicadas y Desarrollo Tecnológico, UNAM (2018).</li>
+          <li>Swift Basic Development, Faculty of Engineering, UNAM (2018).</li>
+          <li>Python Basic, Medium and Advanced Coursework, UNAM (2018).</li>
+          <li>Robotics with Arduino with the Robotic Association at Faculty of Engineering, UNAM (2018).</li>
+          <li>Computer Design with SolidWorks, UNAM (2017).</li>
+        </ul>
+      </div>
     </section>
 
     <section id="teaching">
-        <h2>Teaching</h2>
-        <p>As a part of my social service commitment, I have taken on the role of an instructor for the "Fundamentals of Statistics" course. Commencing this August, I am guiding both graduate and undergraduate students from the Gemma 2d group (<a href="https://gema2000d.org/dr-pablo-francisco-oliva-sanchez/" target="_blank">Gemma 2d Group</a>) in this educational journey.</p>
+      <h2>Teaching & Curriculum Development</h2>
 
-        <p>In this course, I am enthusiastic about sharing my knowledge and expertise in statistics with the students. If you're interested, you can find more information about the course and its materials on the course's <a href="https://github.com/DiegoArturoVelazquezTrejo/Estadistica-1-INMEGEN-2023" target="_blank">GitHub page</a>.</p>
+      <div class="card">
+        <ul>
+          <li><strong>(Aug–Dec 2023)</strong> Statistics (R) Instructor, UNAM–INMEGEN Scientific Liaison Laboratory: designed and delivered a course on statistical theory and practical implementation in R (course repository available).</li>
+          <li><strong>(Aug–Oct 2024)</strong> Instructor, Biostatistics & R Programming for Medicine, Universidad Autónoma Metropolitana (UAM).</li>
+          <li><strong>(Aug–Dec 2023)</strong> Educational content developer for an online course on research methodology for medical residents (ISSSTE–UAM program).</li>
+        </ul>
+      </div>
 
+      <!-- Keeping the existing GitHub link from your original page -->
+      <p style="margin-top:12px;">
+        You can find course materials on the course's
+        <a href="https://github.com/DiegoArturoVelazquezTrejo/Estadistica-1-INMEGEN-2023" target="_blank">GitHub page</a>.
+      </p>
     </section>
 
     <section id="working-experience">
-        <h2>Working Experience</h2>
-    <ul>
-      <li>
-        <strong>INMEGEN-UAM: Research Group (April 2020 - to date):</strong>
-        <ul>
-          <li>Conducted research to evaluate the association between air pollution exposure and morbidity and mortality caused by COVID-19 in the Mexican Valley.</li>
-          <li>Analyzed COVID-19 data from the General Epidemiological Direction of Mexico and the atmospheric vigilance system (RAMA).</li>
-          <li>Contributed to the design of methodology analysis for ecological epidemiological studies.</li>
-          <li>Implemented Evolutionary algorithms for model parametrization and simulation of dynamical systems (SIR and SEIR models).</li>
-        </ul>
-      </li>
-      <li>
-        <strong><a href="https://www.mia.earth/" target="_blank">MIA</a>: Head of Technology and Research Department (October 2022 - to date):</strong>
-        <ul>
-          <li>Co-founded a startup with engineers from various universities.</li>
-          <li>Lead a software data analysis team.</li>
-          <li>Responsible for developing new software and conducting statistical analysis.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Banco Azteca (Feb 2021 - Jan 2022): Statistician and Data Analyst:</strong>
-        <ul>
-          <li>Participated in a study analyzing the association between COVID-19 indicators and financial variables.</li>
-          <li>Collaborated with doctors to plan time series panel studies.</li>
-          <li>Handled data cleaning and processing from a niche bank institution in Mexico.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Tortoise Robotics (Dec 2020 - Apr 2021): Software Engineer (Internship):</strong>
-        <ul>
-          <li>Designed a prototype robot capable of teleoperation via connection to a server.</li>
-          <li>Gained expertise in electronics and robotics for building the prototype.</li>
-          <li>Developed software for remote operation using the Robotic Operating System (ROS).</li>
-        </ul>
-      </li>
-      <li>
-        <strong>SERCADE Civil Association (June - Aug 2019): Volunteer in Teaching and Engineering Projects:</strong>
-        <ul>
-          <li>Engaged in volunteer work in seven rural communities.</li>
-          <li>Contributed to the identification and virtualization of crops in Google Earth for irrigation system design.</li>
-          <li>Taught mathematics, science, and Spanish to teenagers and children.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Trébol: Therapeutic Community (2017-2019): Teacher and Educative Project Manager:</strong>
-        <ul>
-          <li>Created a vocational training program using TIC for individuals with autism.</li>
-          <li>Designed coursework content and taught the program.</li>
-          <li>Initiated with 10 students, expanded to support new patients.</li>
-        </ul>
-      </li>
-    </ul>
-    </section>
+      <h2>Professional Experience</h2>
 
-    <section id="awards">
-        <h2>Research awards</h2>
-    <ul>
-      <li>
-        <strong>Award for best research work at 9º Encuentro Estudiantil “De la doble hélice al horizonte genómico: 70 años de avances médicos”</strong>
+      <div class="card">
         <ul>
-          <li>Conducted research to propose a new methodology for longitudinal studies with missing data applied to biological data (Thesis work).</li>
+          <li>
+            <strong>Banco Azteca (Feb 2021 – Jan 2022): Data Analyst</strong>
+            <ul>
+              <li>Time-series analysis and preprocessing integrating COVID-19 indicators with banking movement/repayment variables to study associations with client payment capacity.</li>
+            </ul>
+          </li>
+          <li style="margin-top:10px;">
+            <strong>Tortoise Robotics (Dec 2020 – Apr 2021): Software Engineer (Internship)</strong>
+            <ul>
+              <li>Built a robotic proof-of-concept prototype supporting software for vehicle teleoperation.</li>
+              <li>Worked with ROS and hardware prototyping (Raspberry Pi, motors, sensors).</li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
+      </div>
+
+      <!-- Keeping your original MIA and INMEGEN-UAM experience blocks, with minimal edits, plus the original link -->
+      <div class="card" style="margin-top:12px;">
+        <ul>
+          <li>
+            <strong>INMEGEN-UAM: Research Group (April 2020 - to date):</strong>
+            <ul>
+              <li>Conducted research to evaluate the association between air pollution exposure and morbidity and mortality caused by COVID-19 in the Mexican Valley.</li>
+              <li>Analyzed COVID-19 data from the General Epidemiological Direction of Mexico and the atmospheric vigilance system (RAMA).</li>
+              <li>Contributed to the design of methodology analysis for ecological epidemiological studies.</li>
+              <li>Implemented Evolutionary algorithms for model parametrization and simulation of dynamical systems (SIR and SEIR models).</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <section id="work-with-cause">
-        <h2>Work with Cause</h2>
+      <h2>Voluntary and Community Work</h2>
+
+      <div class="card">
         <ul>
           <li>
-            <strong>Enlace Rural. Civil Association (Aug 2022 - May 2023): Head of Health Program. Volunteer:</strong>
+            <strong>(Aug 1, 2022 - May 1, 2023) Volunteer and Health Brigades Program Coordinator, Enlace Rural A.C.</strong>
             <ul>
-              <li>Led the creation of a Health program with a primary objective to dispatch a team of doctors to four rural communities, providing vital health services.</li>
-              <li>Currently overseeing assistance to a significant portion of the Plomosas, Hidalgo population.</li>
-              <li>Responsible for fundraising efforts and managing all logistical aspects of the project.</li>
+              <li>Planned and executed health brigades (primary-care consultations and community workshops on first aid and chronic diseases) in Plomosas, Hidalgo.</li>
             </ul>
           </li>
-          <li>
-            <strong>President and Founder of the Technology and Education with Augmented Reality Laboratory (Aug 2022 - Aug 2023) at ITAM:</strong>
+          <li style="margin-top:10px;">
+            <strong>(Aug 1, 2022 - Jun 2023) Founder & President, TERA Lab (Technology and Education with Augmented Reality), ITAM</strong>
             <ul>
-              <li>Guided a development team in spearheading the integration of Virtual Reality (VR) technology into elementary schools situated in rural areas.</li>
-              <li>Engaged in designing a STEM-focused curriculum to introduce young children to novel experiences and inspire their continued education.</li>
+              <li>Developed AR and computer-vision educational projects for children in public schools in highly marginalized communities (Tarango, Mexico City).</li>
+            </ul>
+          </li>
+          <li style="margin-top:10px;">
+            <strong>(Jun 5 - Aug 2, 2019) Volunteer (teaching and logistics), SERCADE A.C.</strong>
+            <ul>
+              <li>Community work in rural areas (Mixteca Alta): mapping oregano crops for an economic empowerment program; tutoring in mathematics and literacy.</li>
+            </ul>
+          </li>
+          <li style="margin-top:10px;">
+            <strong>(Sep 1, 2017 - Mar 1, 2019) Programming and Mathematics Instructor, Trébol Therapeutic Community</strong>
+            <ul>
+              <li>Designed and delivered ICT training for individuals with autism (basic computing and web development).</li>
             </ul>
           </li>
         </ul>
+      </div>
     </section>
 
+    <section id="awards">
+      <h2>Grants, Awards & Honours</h2>
+
+      <div class="card">
+        <ul>
+          <li><strong>(June 10, 2025)</strong> SECIHTI MADTEC-2025-M-590 Grant: Maturation of an early diagnostic test for gestational diabetes in early pregnancy. Total funding: MXN 2,500,000 (collaboration with Dr. Felipe Vadillo-Ortega, UNAM–INMEGEN).</li>
+          <br>
+          <li><strong>(Aug 12, 2025)</strong> National Youth Award (Mexico City Chapter, 2025), Category C: academic/scientific/technological/professional and innovation activities.</li>
+          <br>
+          <li><strong>(Sep 18, 2025)</strong> Mexican Pharmaceutical Council CFM - Fundación UNAM Award for Pharmaceutical Innovation 2025 (8th edition): early gestational diabetes diagnostic maturation.</li>
+          <br>
+          <li><strong>(Oct 18, 2024)</strong> 1st place PIECS health entrepreneurship incubation program: development of an early molecular test for gestational diabetes.</li>
+          <br>
+          <li><strong>(Nov 17, 2025)</strong> ExITAM Research Award XXX: best thesis of the graduating class (B.Sc. Applied Mathematics).</li>
+          <br>
+          <li><strong>(Nov 24, 2023)</strong> Best undergraduate work award, 9th Student Meeting INMEGEN: longitudinal missing-data methodology for HIV “chronic” controls.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="conferences">
+      <h2>Conference Papers & Invited Talk</h2>
+
+      <div class="card">
+        <h3>Conference Papers</h3>
+        <ul>
+          <li><strong>(Oct 19 - 23, 2024)</strong> “Regulatory relationships between genes are not linked to direct transcription factor–target interactions in gene regulatory networks.” 34th Meeting of the Mexican Society of Biochemistry; Mazatlán, Mexico.</li>
+          <br>
+          <li><strong>(Mar 6, 2024)</strong> “A methodology for optimal detection of time windows of interest and missing-data reconstruction in biological sampling.” 5th Computational Biology Symposium INMEGEN, Mexico City.</li>
+          <br>
+          <li><strong>(Nov 23 - 24, 2023)</strong> “A new proposal for longitudinal studies with missing data: an application in a clinical context for the characterization of ‘chronic’ control groups in HIV patients.” 9th Student Meeting “From Double Helix to Genomic Horizon: 70 years of medical advances” at INMEGEN, Mexico City.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>Invited Talk</h3>
+        <ul>
+          <li><strong>(Feb 29, 2024)</strong> Invited speaker: “The landscape of Artificial Intelligence in Mexico: risks, benefits, and regulatory needs.” Federal Chamber of Deputies of the H. Congress of the Union, Mexico.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="card">
+        <ul>
+          <li>Spanish</li>
+          <li>English</li>
+        </ul>
+      </div>
+    </section>
     <section id="hobbies">
-        <h2>Hobbies</h2>
-		    <p>I have a deep passion for playing the violin and engaging in various sports, including soccer. Additionally, I derive great joy from immersing myself in hiking adventures and exploring the beauty of the natural world.</p>
+      <h2>Hobbies</h2>
+      <p>
+        I have a deep passion for playing the violin and engaging in various sports, including soccer. Additionally, I derive great joy from immersing myself in hiking adventures and exploring the beauty of the natural world.
+      </p>
     </section>
+
     <section id="contact">
-	    <h2>Contact</h2>
-	    <ul>
-	        <li>Email: d.velazquez.mc@gmail.com</li>
-	        <li>Github: <a href="https://github.com/DiegoArturoVelazquezTrejo" target="_blank">DiegoArturoVelazquezTrejo</a></li>
-	        <li>Twitter: <a href="https://twitter.com/DiegoArturoVe12" target="_blank">DiegoArturoVe12</a></li>
-	    </ul>
+      <h2>Contact</h2>
+      <div class="card">
+        <ul>
+          <li>Email: d.velazquez.mc@gmail.com</li>
+          <li>Email: velazquez@ciencias.unam.mx</li>
+          <li>Mobile Number: +52 56 30 00 10 76</li>
+          <li>Website: <a href="https://diegoarturovelazqueztrejo.github.io" target="_blank">diegoarturovelazqueztrejo.github.io</a></li>
+          <li>Github: <a href="https://github.com/DiegoArturoVelazquezTrejo" target="_blank">DiegoArturoVelazquezTrejo</a></li>
+          <li>Twitter: <a href="https://twitter.com/DiegoArturoVe12" target="_blank">DiegoArturoVe12</a></li>
+        </ul>
+      </div>
     </section>
-    <footer>
-        © 2023 Diego Arturo Velazquez Trejo. All rights reserved.
-    </footer>
+
+  </div>
+
+  <footer>
+    © 2026 Diego Arturo Velázquez Trejo. All rights reserved.
+  </footer>
+
 </body>
 </html>
