@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Consulting | Diego Arturo Velázquez Trejo</title>
+
+  <!-- Font (same family as main site) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+  <style>
+    :root{
+      --bg: #0f172a;
+      --card: #0b1224;
+      --text: #e5e7eb;
+      --muted: #b6c0cf;
+      --accent: #38bdf8;
+      --accent2: #a78bfa;
+      --nav: #0b1020;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(56,189,248,.20), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.18), transparent 55%),
+        linear-gradient(180deg, #0b1020 0%, #071022 60%, #050b18 100%);
+    }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,16,32,.88);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    nav .nav-wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:230px;
+      font-weight:700;
+      letter-spacing:.2px;
+      color:var(--text);
+    }
+    .brand-dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 4px rgba(56,189,248,.10);
+    }
+
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; flex-wrap:wrap;
+      gap:10px 14px;
+      justify-content:flex-end;
+    }
+    nav ul li a{
+      color:var(--text);
+      font-weight:500;
+      font-size:13px;
+      opacity:.92;
+      padding:6px 10px;
+      border-radius:999px;
+      transition: background .2s ease, opacity .2s ease;
+      display:inline-block;
+    }
+    nav ul li a:hover{
+      background: rgba(255,255,255,.08);
+      opacity:1;
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:26px 16px 40px;
+    }
+
+    .hero{
+      margin-top:10px;
+      padding:20px;
+      background: rgba(11,18,36,.55);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:30px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+
+    .hero p{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.55;
+      max-width:720px;
+      font-size:14px;
+    }
+
+    .hero-photo{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .pill{
+      font-size:12px;
+      padding:7px 11px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:var(--text);
+      opacity:.95;
+      white-space:nowrap;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+      align-items:center;
+      margin-top:12px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;
+      font-size:13px;
+    }
+    .btn:hover{ background: rgba(255,255,255,.07); text-decoration:none; }
+
+    .btn-primary{
+      border:1px solid rgba(56,189,248,.35);
+      background: rgba(56,189,248,.14);
+    }
+    .btn-primary:hover{ background: rgba(56,189,248,.20); }
+
+    section{
+      margin-top:18px;
+      padding:18px;
+      background: rgba(11,18,36,.55);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+
+    section h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+
+    .muted{ color:var(--muted); opacity:.95; }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .card{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.15px;
+    }
+
+    .service-img{
+      width:100%;
+      height:110px;
+      object-fit:cover;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      margin-bottom:10px;
+    }
+
+    ul{
+      margin: 8px 0 0 18px;
+      line-height:1.55;
+      font-size:13px;
+      color:var(--text);
+      opacity:.95;
+    }
+
+    .compact-list li{ margin-bottom:4px; }
+
+    .hr{
+      height:1px;
+      background: var(--border);
+      margin: 12px 0;
+    }
+
+    /* Sequence analytics image block */
+    .sequence-figure{
+      width:100%;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      overflow:hidden;
+    }
+    .sequence-figure img{
+      width:100%;
+      display:block;
+    }
+    .figure-caption{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
+      line-height:1.45;
+    }
+
+    /* Alternative pipeline visualization: CSS stepper */
+    .stepper{
+      margin-top:12px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding:14px;
+      overflow-x:auto;
+    }
+    .stepper-track{
+      min-width: 980px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      position:relative;
+      padding:10px 8px 6px;
+    }
+    .stepper-track:before{
+      content:"";
+      position:absolute;
+      left:24px; right:24px;
+      top:27px;
+      height:2px;
+      background: rgba(255,255,255,.12);
+    }
+    .step{
+      width: 160px;
+      position:relative;
+    }
+    .step-dot{
+      width:18px;height:18px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(56,189,248,.9), rgba(167,139,250,.9));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 0 0 4px rgba(56,189,248,.08);
+      margin: 0 0 10px 0;
+      position:relative;
+      z-index:2;
+    }
+    .step-title{
+      margin:0;
+      font-weight:700;
+      font-size:13px;
+      line-height:1.25;
+    }
+    .step-mini{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    /* Alternative pipeline visualization: inline SVG "flow" card */
+    .flow-card{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+    }
+    .flow-svg{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* Tools pills */
+    .tool-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    footer{
+      margin-top:22px;
+      background-color: rgba(11,16,32,.88);
+      color: var(--muted);
+      text-align: center;
+      padding: 14px 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 980px){
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .hero{ grid-template-columns: 1fr; }
+      .cta-row{ justify-content:flex-start; }
+      nav .nav-wrap{ flex-direction:column; align-items:stretch; }
+      nav ul{ justify-content:center; }
+      .brand{ justify-content:center; }
+      .hero-photo{ height:220px; }
+    }
+    /* Publications gallery */
+    .pub-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:12px;
+    margin-top:10px;
+    }
+
+    .pub-item{
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap:14px;
+    padding:14px;
+    border-radius:16px;
+    border:1px solid var(--border);
+    background: rgba(255,255,255,.04);
+    align-items:start;
+    }
+
+    .pub-cover{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background: rgba(255,255,255,.02);
+    }
+
+    .pub-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    margin-bottom:6px;
+    }
+
+    .pub-tag{
+    font-size:11px;
+    padding:6px 10px;
+    border-radius:999px;
+    background: rgba(255,255,255,.06);
+    border:1px solid var(--border);
+    color: var(--text);
+    opacity:.95;
+    }
+
+    .pub-title{
+    margin:0 0 6px;
+    font-size:14px;
+    line-height:1.35;
+    font-weight:700;
+    }
+
+    .pub-cite{
+    margin:0;
+    color:var(--muted);
+    font-size:12.5px;
+    line-height:1.5;
+    }
+
+    .pub-actions{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    }
+
+    .pub-btn{
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:12px;
+    border:1px solid rgba(56,189,248,.35);
+    background: rgba(56,189,248,.14);
+    color: var(--text);
+    font-weight:600;
+    font-size:13px;
+    }
+
+    .pub-btn:hover{
+    background: rgba(56,189,248,.20);
+    text-decoration:none;
+    }
+
+    .pub-section-title{
+    margin: 0 0 8px;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.15px;
+    }
+
+    @media (max-width: 740px){
+    .pub-item{
+        grid-template-columns: 1fr;
+    }
+    .pub-cover{
+        height:160px;
+    }
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrap">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>Data Consulting</span>
+      </div>
+
+      <ul>
+        <!-- Replace href with your actual home page path -->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#outcomes">Outcomes</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#tools">Programming Tools</a></li>
+        <li><a href="#literature">Literature Search</a></li>
+        <li><a href="#interpretation">Interpretation</a></li>
+        <li><a href="#deliverables">Deliverables</a></li>
+        <li><a href="#published-papers">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <h1>Biological Data Analytics & AI Consulting</h1>
+        <p>
+          Consulting for biological and clinical datasets: longitudinal cohorts, cross-sectional studies, epidemiology, and omics
+          (transcriptomics, proteomics, metabolomics). Clean, reproducible analysis with uncertainty-aware inference and validated predictive models.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Longitudinal & Time-to-Event</span>
+          <span class="pill">Epidemiology</span>
+          <span class="pill">Transcriptomics</span>
+          <span class="pill">Metabolomics</span>
+          <span class="pill">Proteomics</span>
+          <span class="pill">ML • Bayesian • Risk Models</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Request a consult</a>
+          <a class="btn" href="#pipeline">See pipeline</a>
+          <a class="btn" href="#deliverables">Deliverables</a>
+        </div>
+      </div>
+
+      <div>
+        <!-- Add your photo as main.jpeg in the same folder as this HTML -->
+        <img class="hero-photo" src="main.png" alt="Diego Arturo Velázquez Trejo" />
+        <!-- Agregamos foot note-->
+        <p class="muted" style="margin:8px 0 0; font-size:12px; text-align:center;">
+          (Lee, C. et al, 2017) https://doi.org/10.1007/978-3-319-66896-3_12
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services by Data Type</h2>
+      <p class="muted" style="margin:0; font-size:13px;">
+        Each block highlights the typical analyses delivered for that modality.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <img class="service-img" src="longitudinales.png" alt="Longitudinal analytics" />
+          <h3>Longitudinal & Time-to-Event</h3>
+          <ul class="compact-list">
+            <li>Missingness audit & imputation</li>
+            <li>Trajectory modelling (mixed/hierarchical)</li>
+            <li>Window / change-point detection</li>
+            <li>Survival (risk over time)</li>
+            <li>Forecasting & scenario analysis</li>
+            <li>Leakage-safe validation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img class="service-img" src="crosssectional.png" alt="Cross-sectional analytics" />
+          <h3>Cross-sectional & Case–Control</h3>
+          <ul class="compact-list">
+            <li>Design checks & covariate plan</li>
+            <li>Regression (GLM/GAM) + regularization</li>
+            <li>Robust / non-parametric inference</li>
+            <li>Effect sizes + uncertainty</li>
+            <li>Subgroup / stratified analysis</li>
+            <li>Reproducible reporting</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img class="service-img" src="epidemiologia.png" alt="Epidemiology analytics" />
+          <h3>Epidemiology & Population Health</h3>
+          <ul class="compact-list">
+            <li>Rates & standardization</li>
+            <li>Time-series + interventions</li>
+            <li>Geospatial mapping / hotspots</li>
+            <li>Multilevel modelling</li>
+            <li>Risk-factor models</li>
+            <li>Stakeholder-ready outputs</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img class="service-img" src="transcriptomica.png" alt="Transcriptomics analytics" />
+          <h3>Transcriptomics (bulk & single-cell)</h3>
+          <ul class="compact-list">
+            <li>QC, normalization, batch correction</li>
+            <li>Differential expression</li>
+            <li>Pathways / enrichment</li>
+            <li>Clustering & annotation (scRNA)</li>
+            <li>Pseudotime / trajectories</li>
+            <li>Coexpression & networks</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img class="service-img" src="metabolomica.png" alt="Metabolomics analytics" />
+          <h3>Metabolomics</h3>
+          <ul class="compact-list">
+            <li>QC (drift/standards), normalization</li>
+            <li>Signature discovery</li>
+            <li>Classification & risk scores</li>
+            <li>Confounder control</li>
+            <li>Validation (AUC, calibration)</li>
+            <li>Thresholds for deployment</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <img class="service-img" src="proteomica.png" alt="Proteomics analytics" />
+          <h3>Proteomics</h3>
+          <ul class="compact-list">
+            <li>QC + missingness patterns</li>
+            <li>Differential abundance</li>
+            <li>Protein panels / signatures</li>
+            <li>Pathway/network context</li>
+            <li>Integration with other omics</li>
+            <li>Validated prediction</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section id="outcomes">
+      <h2>Analytic Outcomes</h2>
+      <p class="muted" style="margin:0; font-size:13px;">
+        Minimal, decision-oriented outputs—always with documented assumptions and uncertainty.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Descriptive & Data Quality</h3>
+          <ul class="compact-list">
+            <li>Profiling + QC summaries</li>
+            <li>Batch/drift checks</li>
+            <li>Missingness + bias audit</li>
+            <li>Analysis-ready tables</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Inference & Evidence</h3>
+          <ul class="compact-list">
+            <li>Adjusted associations</li>
+            <li>Effect sizes + CI/posterior</li>
+            <li>Robustness / sensitivity checks</li>
+            <li>Clear limitations</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Prediction, Risk & Forecasts</h3>
+          <ul class="compact-list">
+            <li>Risk scores / classifiers</li>
+            <li>Calibration + thresholds</li>
+            <li>Survival risk (time-to-event)</li>
+            <li>Forecasts with uncertainty</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Discovery & Integration</h3>
+          <ul class="compact-list">
+            <li>Stratification / clustering</li>
+            <li>Biomarker signatures (biomarker discovery)</li>
+            <li>Multi-omics integration</li>
+            <li>Networks (coexpression, GRNs)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section id="pipeline">
+      <h2>Project Pipeline</h2>
+      <p class="muted" style="margin:0; font-size:13px;">
+        A compact, reproducible workflow—from research question to interpretable results and handover-ready code.
+      </p>
+
+      <!-- Incorporate your "Sequence Analytics" image here -->
+      <!-- Save the provided image as: sequence_analytics.png -->
+      <div style="margin-top:12px;">
+        <div class="sequence-figure">
+          <img src="sequence_analytics.png" alt="Sequence Analytics: time series, cross-sectional, panel/longitudinal" />
+        </div>
+        <div class="figure-caption">
+          Data structure awareness (time series, cross-sectional, panel/longitudinal) informs modelling, validation, and interpretation.
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <!-- Visual resource #1: CSS stepper (no external library, clean + compact) -->
+      <div class="stepper" aria-label="Pipeline stepper">
+        <div class="stepper-track">
+          <div class="step">
+            <div class="step-dot"></div>
+            <p class="step-title">Research question</p>
+            <p class="step-mini">Objectives, endpoints, success metrics.</p>
+          </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <p class="step-title">Data audit</p>
+            <p class="step-mini">Schema, QC, missingness, bias.</p>
+          </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <p class="step-title">Cleaning & structure</p>
+            <p class="step-mini">ETL, harmonization, documentation.</p>
+          </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <p class="step-title">Method design</p>
+            <p class="step-mini">Stats/ML plan + validation protocol.</p>
+          </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <p class="step-title">Results</p>
+            <p class="step-mini">Figures, tables, metrics, uncertainty.</p>
+          </div>
+          <div class="step">
+            <div class="step-dot"></div>
+            <p class="step-title">Interpretation</p>
+            <p class="step-mini">Discussion, limitations, next steps.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <!-- Visual resource #2: Inline SVG flow diagram (also no external library) -->
+      <div class="flow-card">
+        <svg class="flow-svg" viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline flow diagram">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#38bdf8" stop-opacity="0.85"/>
+              <stop offset="1" stop-color="#a78bfa" stop-opacity="0.85"/>
+            </linearGradient>
+            <filter id="shadow" x="-20%" y="-50%" width="140%" height="200%">
+              <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
+            </filter>
+          </defs>
+
+          <!-- Boxes -->
+          <g font-family="Poppins, sans-serif" font-size="14" fill="#e5e7eb">
+            <!-- Box function -->
+            <!-- 1 -->
+            <rect x="20" y="55" rx="16" ry="16" width="180" height="110" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" filter="url(#shadow)"/>
+            <text x="110" y="92" text-anchor="middle" font-weight="700">Question</text>
+            <text x="110" y="118" text-anchor="middle" fill="#b6c0cf" font-size="12">Define endpoints</text>
+            <text x="110" y="138" text-anchor="middle" fill="#b6c0cf" font-size="12">Success metrics</text>
+
+            <!-- 2 -->
+            <rect x="220" y="55" rx="16" ry="16" width="180" height="110" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" filter="url(#shadow)"/>
+            <text x="310" y="92" text-anchor="middle" font-weight="700">Audit</text>
+            <text x="310" y="118" text-anchor="middle" fill="#b6c0cf" font-size="12">QC & missingness</text>
+            <text x="310" y="138" text-anchor="middle" fill="#b6c0cf" font-size="12">Bias checks</text>
+
+            <!-- 3 -->
+            <rect x="420" y="55" rx="16" ry="16" width="180" height="110" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" filter="url(#shadow)"/>
+            <text x="510" y="92" text-anchor="middle" font-weight="700">Structure</text>
+            <text x="510" y="118" text-anchor="middle" fill="#b6c0cf" font-size="12">ETL / harmonize</text>
+            <text x="510" y="138" text-anchor="middle" fill="#b6c0cf" font-size="12">Data dictionary</text>
+
+            <!-- 4 -->
+            <rect x="620" y="55" rx="16" ry="16" width="180" height="110" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" filter="url(#shadow)"/>
+            <text x="710" y="92" text-anchor="middle" font-weight="700">Method</text>
+            <text x="710" y="118" text-anchor="middle" fill="#b6c0cf" font-size="12">Stats / ML design</text>
+            <text x="710" y="138" text-anchor="middle" fill="#b6c0cf" font-size="12">Validation plan</text>
+
+            <!-- 5 -->
+            <rect x="820" y="55" rx="16" ry="16" width="180" height="110" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" filter="url(#shadow)"/>
+            <text x="910" y="92" text-anchor="middle" font-weight="700">Results</text>
+            <text x="910" y="118" text-anchor="middle" fill="#b6c0cf" font-size="12">Figures / metrics</text>
+            <text x="910" y="138" text-anchor="middle" fill="#b6c0cf" font-size="12">Uncertainty</text>
+
+            <!-- 6 -->
+            <rect x="1020" y="55" rx="16" ry="16" width="160" height="110" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" filter="url(#shadow)"/>
+            <text x="1100" y="92" text-anchor="middle" font-weight="700">Interpret</text>
+            <text x="1100" y="118" text-anchor="middle" fill="#b6c0cf" font-size="12">Discussion</text>
+            <text x="1100" y="138" text-anchor="middle" fill="#b6c0cf" font-size="12">Next steps</text>
+          </g>
+
+          <!-- Arrows -->
+          <g stroke="url(#g)" stroke-width="3" fill="none" opacity="0.95">
+            <path d="M200 110 H220" />
+            <path d="M400 110 H420" />
+            <path d="M600 110 H620" />
+            <path d="M800 110 H820" />
+            <path d="M1000 110 H1020" />
+          </g>
+          <g fill="url(#g)" opacity="0.95">
+            <polygon points="218,110 208,104 208,116"/>
+            <polygon points="418,110 408,104 408,116"/>
+            <polygon points="618,110 608,104 608,116"/>
+            <polygon points="818,110 808,104 808,116"/>
+            <polygon points="1018,110 1008,104 1008,116"/>
+          </g>
+        </svg>
+
+        <p class="muted" style="margin:10px 0 0; font-size:13px;">
+          Code can be delivered as scripts/notebooks (Python/R) with environment specification and a handover walkthrough.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROGRAMMING TOOLS -->
+    <section id="tools">
+      <h2>Programming Tools</h2>
+      <p class="muted" style="margin:0; font-size:13px;">
+        Tools we routinely use to build reproducible analytics pipelines.
+      </p>
+
+      <div class="tool-pills">
+        <span class="pill">Python</span>
+        <span class="pill">R</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Bash / Shell</span>
+        <span class="pill">Git / GitHub</span>
+        <span class="pill">Linux</span>
+        <span class="pill">Jupyter</span>
+        <span class="pill">RStudio</span>
+        <span class="pill">Docker (basic)</span>
+        <span class="pill">HPC / Clusters</span>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Core analytics stack</h3>
+          <ul class="compact-list">
+            <li>Data wrangling, visualization, reporting</li>
+            <li>Statistical modelling & ML workflows</li>
+            <li>Reproducible project structure + version control</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Omics ecosystems (typical)</h3>
+          <ul class="compact-list">
+            <li>Bulk/scRNA-seq workflows (e.g., Scanpy/Seurat-style pipelines)</li>
+            <li>Network analysis & multi-omics integration patterns</li>
+            <li>Exportable figures for papers and presentations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LITERATURE SEARCH -->
+    <section id="literature">
+      <h2>Literature Search & Evidence Integration</h2>
+      <p class="muted" style="margin:0; font-size:13px;">
+        We can conduct literature review and integrate published evidence into the analytical plan and interpretation.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>What we can do</h3>
+          <ul class="compact-list">
+            <li>Targeted literature search and screening (topic-specific)</li>
+            <li>Evidence synthesis to refine hypotheses & endpoints</li>
+            <li>Mapping findings to pathways/genes/biomarkers</li>
+            <li>Translating evidence into model features and priors</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>How it connects to the analysis</h3>
+          <ul class="compact-list">
+            <li>Define a biologically grounded modelling strategy</li>
+            <li>Choose appropriate covariates and confounders</li>
+            <li>Set realistic effect sizes and validation expectations</li>
+            <li>Support discussion and interpretation of results</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERPRETATION & DISCUSSION -->
+    <section id="interpretation">
+      <h2>Interpretation & Discussion</h2>
+      <p class="muted" style="margin:0 0 10px; font-size:13px;">
+        Results are delivered with interpretation aligned to biology/medicine and the decision context—not only statistical outputs.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Interpretation</h3>
+          <ul class="compact-list">
+            <li>Biological plausibility & mechanisms</li>
+            <li>Confounding and alternative explanations</li>
+            <li>Effect size vs statistical significance</li>
+            <li>Clinical relevance (when applicable)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Discussion</h3>
+          <ul class="compact-list">
+            <li>Limitations & failure modes</li>
+            <li>Generalization boundaries</li>
+            <li>Recommended follow-up analyses</li>
+            <li>Next experimental/clinical steps</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section id="deliverables">
+      <h2>Deliverables</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Core</h3>
+          <ul class="compact-list">
+            <li>Clean dataset + data dictionary</li>
+            <li>Figures/tables (publication-ready)</li>
+            <li>Executive summary + technical appendix</li>
+            <li>Model report (metrics, calibration, uncertainty)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Code & Handover</h3>
+          <ul class="compact-list">
+            <li>Scripts / notebooks (Python/R)</li>
+            <li>Reproducible pipeline (Git repo)</li>
+            <li>Environment specification</li>
+            <li>Walkthrough + handover session</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="published-papers">
+        <h2>Publications, Manuscripts & Book Chapter</h2>
+        <p class="muted" style="margin:0; font-size:13px;">
+            Selected peer-reviewed articles, an under-review manuscript, and a book chapter. (Replace images with your preferred covers.)
+        </p>
+
+        <div class="hr"></div>
+
+        <!-- Peer-reviewed Articles -->
+        <div class="card">
+            <p class="pub-section-title">Peer-reviewed Articles</p>
+
+            <div class="pub-grid">
+
+            <!-- 1 -->
+            <div class="pub-item">
+                <img class="pub-cover" src="foto1.png" alt="Cover image for publication 1" />
+
+                <div>
+                <div class="pub-meta">
+                    <span class="pub-tag">2025</span>
+                    <span class="pub-tag">Peer-reviewed</span>
+                    <span class="pub-tag">Metabolomics</span>
+                </div>
+
+                <p class="pub-title">
+                    Identification of metabotypes in healthy schoolchildren and their change in response to a physical activity intervention.
+                </p>
+
+                <p class="pub-cite">
+                    Hernández-Ramírez, S. K., Velázquez Trejo, D. A., Sandoval-Colín, E., Flores-Torres, M., Fresno, C., Polo-Oteyza, E.,
+                    Garcés-Hernández, M. J., Garibay-Nieto, N., Ibarra-González, I., Vela-Amieva, M., Estrada-Gutiérrez, G., & Vadillo-Ortega, F. (2025).
+                    <em>Metabolites</em>.
+                </p>
+
+                <div class="pub-actions">
+                    <a class="pub-btn" href="https://doi.org/10.3390/metabo16010044" target="_blank" rel="noopener noreferrer">Open DOI</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="pub-item">
+                <img class="pub-cover" src="foto2.png" alt="Cover image for publication 2" />
+
+                <div>
+                <div class="pub-meta">
+                    <span class="pub-tag">2024</span>
+                    <span class="pub-tag">Peer-reviewed</span>
+                    <span class="pub-tag">Epidemiology</span>
+                </div>
+
+                <p class="pub-title">
+                    Non-communicable chronic diseases and COVID-19 in Mexico: an epidemiological surveillance perspective.
+                </p>
+
+                <p class="pub-cite">
+                    Oliva Sánchez, P. F., Velázquez Trejo, D. A., Abarca Acha, L. F., et al. (2024).
+                    <em>Mensaje Bioquímico</em>, 48, 61–80. ISSN-0188-137X.
+                </p>
+
+                <div class="pub-actions">
+                    <a class="pub-btn"
+                    href="http://biosensor.facmed.unam.mx/mensajebioquimico/wp-content/uploads/2024/09/Mensaje-Bioquimico-2024-Vol-48.pdf"
+                    target="_blank" rel="noopener noreferrer">Open PDF</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="pub-item">
+                <img class="pub-cover" src="foto3.png" alt="Cover image for publication 3" />
+
+                <div>
+                <div class="pub-meta">
+                    <span class="pub-tag">2022</span>
+                    <span class="pub-tag">Peer-reviewed</span>
+                    <span class="pub-tag">Public Health</span>
+                </div>
+
+                <p class="pub-title">
+                    Asociación de la exposición a contaminantes atmosféricos con indicadores epidemiológicos de morbilidad y mortalidad por Covid-19 en el Valle de México.
+                </p>
+
+                <p class="pub-cite">
+                    Oliva-Sánchez, P. F., López-Landeros, S., Velázquez-Trejo, D. A., Brenner-Muslera, E., Martínez-Kobeh, J. P., González-Reyes, D.,
+                    Guasque-Gil, I., & Vadillo-Ortega, F. (2022). <em>Salud Pública De México</em>, 64(5, sept-oct), 453–463.
+                </p>
+
+                <div class="pub-actions">
+                    <a class="pub-btn" href="https://pubmed.ncbi.nlm.nih.gov/36130351/" target="_blank" rel="noopener noreferrer">Open PubMed</a>
+                    <a class="pub-btn" href="https://doi.org/10.21149/13814" target="_blank" rel="noopener noreferrer">Open DOI</a>
+                </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- Manuscripts -->
+        <div class="card" style="margin-top:12px;">
+            <p class="pub-section-title">Manuscripts</p>
+
+            <div class="pub-grid">
+            <div class="pub-item">
+                <img class="pub-cover" src="foto4.png" alt="Cover image for manuscript" />
+
+                <div>
+                <div class="pub-meta">
+                    <span class="pub-tag">2025</span>
+                    <span class="pub-tag">Under review</span>
+                    <span class="pub-tag">Gene regulation</span>
+                </div>
+
+                <p class="pub-title">
+                    Effective regulatory relationships between genes differ from direct transcription factor-target interactions, and exhibit a distinct statistical signature.
+                </p>
+
+                <p class="pub-cite">
+                    Velázquez-Trejo, D. A., Islas-Ortíz, J. A., Rueda-Zarazúa, B., del-Toro, D., Olascoaga-Del Angel, O., Ramirez-Lugo, L., & Gutiérrez, H.*
+                    Manuscript under review (2025).
+                </p>
+
+                <div class="pub-actions">
+                    <!-- If you later have a preprint link, add it here -->
+                    <span class="muted" style="font-size:12px;">Preprint link available upon request.</span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Book Chapter -->
+        <div class="card" style="margin-top:12px;">
+            <p class="pub-section-title">Book Chapter</p>
+
+            <div class="pub-grid">
+            <div class="pub-item">
+                <img class="pub-cover" src="foto5.png" alt="Cover image for book chapter" />
+
+                <div>
+                <div class="pub-meta">
+                    <span class="pub-tag">2021</span>
+                    <span class="pub-tag">Book chapter</span>
+                    <span class="pub-tag">Health equity</span>
+                </div>
+
+                <p class="pub-title">
+                    Equity in health services and biotechnological research in Mexico.
+                </p>
+
+                <p class="pub-cite">
+                    Oliva Sánchez, P. F., Landín Quirós, C. E., Prado Vázquez, R., et al., & Velázquez Trejo, D. A. (2021).
+                    In Álvarez Díaz, J. A., & López Moreno, S. (Eds.), <em>Essays on Health Ethics: Clinical and Biomedical Aspects</em>
+                    (2nd ed., pp. 121–132). Universidad Autónoma Metropolitana, Unidad Xochimilco. ISBN: 978-607-28-1889-7
+                </p>
+
+                <div class="pub-actions">
+                    <a class="pub-btn" href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank" rel="noopener noreferrer">
+                    ISBN record
+                    </a>
+                </div>
+
+                <div class="hr"></div>
+
+                <!-- Keeping your original “2014 book info” block but in compact form -->
+                <p class="pub-cite">
+                    <strong>Álvarez Pérez, J. C., Feito Grande, L., Hernández Mansilla, J. M., Rodríguez Yunta, E., Oliva Sánchez, P. F., Prado Vázquez, R., ... Pérez-Salas Pérez-Gil, P. (2014).</strong>
+                    <em>Ensayos sobre ética de la salud: aspectos clínicos y biomédicos</em>. Universidad Autónoma Metropolitana. ISBN 978-607-28-0227-8.
+                    Where I participated in Chapter 6.
+                </p>
+
+                <div class="pub-actions">
+                    <a class="pub-btn" href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank" rel="noopener noreferrer">
+                    Link to Chapter
+                    </a>
+                    <a class="pub-btn" href="https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=351284" target="_blank" rel="noopener noreferrer">
+                    More Information
+                    </a>
+                </div>
+
+                </div>
+            </div>
+            </div>
+
+            <p class="muted" style="margin:10px 0 0; font-size:12px;">
+            Expected images in the same folder: <span style="color:var(--text); opacity:.95;">foto1.png ... foto5.png</span>
+            </p>
+        </div>
+
+        </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <ul class="compact-list">
+          <li>Phone Number:+52 5630001076</li>
+          <li>Email: <a href="mailto:d.velazquez.mc@gmail.com">d.velazquez.mc@gmail.com</a></li>
+          <li>Email: <a href="mailto:velazquez@ciencias.unam.mx">velazquez@ciencias.unam.mx</a></li>
+          <li>GitHub: <a href="https://github.com/DiegoArturoVelazquezTrejo" target="_blank" rel="noopener noreferrer">DiegoArturoVelazquezTrejo</a></li>
+          <li>Website: <a href="https://diegoarturovelazqueztrejo.github.io" target="_blank" rel="noopener noreferrer">diegoarturovelazqueztrejo.github.io</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Diego Arturo Velázquez Trejo. All rights reserved.
+    </footer>
+
+  </div>
+</body>
+</html>
