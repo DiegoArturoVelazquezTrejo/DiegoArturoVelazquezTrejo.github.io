@@ -197,11 +197,12 @@
     .muted{ color:var(--muted); opacity:.95; }
 
     .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:12px;
-      margin-top:10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
     }
+
 
     .grid-2{
       display:grid;
@@ -493,9 +494,12 @@
       <div>
         <h1>Biological Data Analytics & AI Consulting</h1>
         <p>
-          Consulting for biological and clinical datasets: longitudinal cohorts, cross-sectional studies, epidemiology, and omics
-          (transcriptomics, proteomics, metabolomics). Clean, reproducible analysis with uncertainty-aware inference and validated predictive models.
+          Consulting for biological and clinical datasets—including longitudinal cohorts, cross-sectional studies, epidemiology, and multi-omics
+          (transcriptomics, proteomics, metabolomics)—with additional focus on pharmaceutical and biotech analytics (clinical development, biomarker strategy,
+          patient stratification, real-world evidence, and translational modelling). Clean, fully reproducible analyses with uncertainty-aware inference
+          and rigorously validated predictive models.
         </p>
+
 
         <div class="pill-row">
           <span class="pill">Longitudinal & Time-to-Event</span>
@@ -617,7 +621,7 @@
         Minimal, decision-oriented outputs—always with documented assumptions and uncertainty.
       </p>
 
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card">
           <h3>Descriptive & Data Quality</h3>
           <ul class="compact-list">
@@ -649,6 +653,40 @@
         </div>
 
         <div class="card">
+          <h3>Machine Learning (Classic)</h3>
+          <ul class="compact-list">
+            <li><strong>Classification:</strong> Logistic Reg., SVM, Random Forest, XGBoost</li>
+            <li><strong>Regression:</strong> Ridge/Lasso/ElasticNet, Random Forest, Gradient Boosting</li>
+            <li><strong>Clustering:</strong> k-means, Hierarchical, Gaussian Mixtures</li>
+            <li><strong>Dimensionality reduction:</strong> PCA, UMAP, t-SNE</li>
+            <li><strong>Feature selection:</strong> L1/Lasso, Boruta, permutation importance</li>
+            <li><strong>Time-to-event:</strong> CoxPH, survival forests, boosted survival</li>
+          </ul>
+        </div>
+
+       <div class="card">
+        <h3>Computational Chemistry (Docking & Dynamics)</h3>
+        <ul class="compact-list">
+          <li><strong>Virtual screening:</strong> filtering + ranking of candidate ligands</li>
+          <li><strong>Molecular docking:</strong> poses, interaction checks, consensus rescoring</li>
+          <li><strong>Molecular dynamics:</strong> stability of protein–ligand complex over time</li>
+          <li><strong>Key metrics:</strong> RMSD/RMSF, H-bond occupancy, contact stability, key distances</li>
+          <li><strong>Deliverable:</strong> prioritized shortlist + interpretable evidence (figures & rationale)</li>
+        </ul>
+      </div>
+
+        <div class="card">
+          <h3>Pharma & Biotech (Decision Support)</h3>
+          <ul class="compact-list">
+            <li><strong>Biomarker programs:</strong> discovery → validation, feature robustness, confounder control.</li>
+            <li><strong>Patient stratification:</strong> responder/non-responder signatures, subgroup stability, interpretability.</li>
+            <li><strong>Clinical endpoints:</strong> risk models, calibration, threshold setting, sensitivity/specificity tradeoffs.</li>
+            <li><strong>Translational evidence:</strong> pathway context, network analysis, mechanism-oriented interpretation.</li>
+            <li><strong>Reproducibility:</strong> auditable code + data dictionaries + methodology appendix for review.</li>
+          </ul>
+        </div>
+
+        <div class="card">
           <h3>Discovery & Integration</h3>
           <ul class="compact-list">
             <li>Stratification / clustering</li>
@@ -657,6 +695,8 @@
             <li>Networks (coexpression, GRNs)</li>
           </ul>
         </div>
+
+
       </div>
     </section>
 
@@ -1114,7 +1154,7 @@
             </p>
         </div>
 
-        </section>
+    </section>
 
 
     <!-- CONTACT -->
