@@ -446,6 +446,120 @@
       .pub-item{ grid-template-columns: 1fr; }
       .pub-cover-wrap{ height:160px; }
     }
+    /* ============================
+   MOBILE FIX PATCH (paste last)
+   ============================ */
+
+    /* 1) Prevent horizontal scroll from any oversized element */
+    html, body{
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    img, svg, video, canvas{
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 2) Long URLs / long words must wrap (prevents overflow) */
+    a, p, li, h1, h2, h3{
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    /* 3) Make nav wrap nicely on small screens (avoid "jumping") */
+    nav .nav-wrap{
+      flex-wrap: wrap;
+    }
+
+    nav ul{
+      max-width: 100%;
+    }
+
+    /* 4) HERO header: collapse to 1 column in mobile + reduce paddings */
+    @media (max-width: 900px){
+      .container{
+        padding: 18px 12px 34px;
+      }
+
+      .header{
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+
+      .header img{
+        width: min(170px, 60vw);
+        height: min(170px, 60vw);
+      }
+
+      .hero-title{
+        font-size: 26px;
+        line-height: 1.15;
+      }
+
+      .hero-subtitle{
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      section{
+        padding: 16px;
+      }
+    }
+
+    /* 5) Grids: always stack to 1 column on mobile */
+    @media (max-width: 900px){
+      .grid-2{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .press-grid{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* 6) Cards: consistent spacing + avoid content causing width issues */
+    .card{
+      width: 100%;
+      min-width: 0; /* important in CSS grid to prevent overflow */
+    }
+
+    /* 7) Press iframes: keep stable height on phones */
+    @media (max-width: 900px){
+      .press-frame-wrap{
+        height: 420px;  /* better readability; adjust 360–520 to taste */
+      }
+    }
+
+    /* 8) Publications: prevent the cover grid from stretching weirdly */
+    .pub-item{
+      min-width: 0; /* grid child overflow fix */
+    }
+
+    /* 9) Quick links: make them wrap without overflowing */
+    .quick-links{
+      gap: 10px;
+    }
+    .quick-links span{
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    /* 10) Optional: stop big "lists with <br>" from looking too tall on mobile */
+    @media (max-width: 900px){
+      ul{
+        margin-left: 16px;
+      }
+    }
+
+    /* 11) Accessibility: reduce motion on users who prefer it */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+    }
+
 
   </style>
 </head>
